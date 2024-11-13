@@ -22,10 +22,14 @@
     if (document.querySelector('.hero-slider')) {
       const swiper = new Swiper('.hero-slider .swiper', {
         loop: true,
-        // pagination: {
-        //   el: ".swiper-pagination",
-        //   clickable: true
-        // },
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true
+        },
         navigation: {
           nextEl: '.hero-slider .slider-button-next',
           prevEl: '.hero-slider .slider-button-prev',
@@ -116,7 +120,7 @@
   }
 
   mainNavigation()
-  // heroSlider()
+  heroSlider()
   // telefonInput()
   // onceSonraSlider()
   // videoSlider()
