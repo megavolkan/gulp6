@@ -1,21 +1,25 @@
+@use "flex-mixins/flex";
+@use "mixins";
+@use "variables";
+
 
 /* NAVIGATION
 ================================*/
 .navigation{
-	@include flex();
+	@include flex.flex();
 	-ms-flex-align: initial;
 	align-items: initial;
 	width: 100%;
-	min-height: $navigation-height;
+	min-height: variables.$navigation-height;
 	padding: 0;
 	position: relative;
 	line-height: initial;
-	font-family: $navigation-font-family;
+	font-family: variables.$navigation-font-family;
 	box-sizing: border-box;
-	background-color: $navigation-background-color;
-	@include transition(background .3s);
+	background-color: variables.$navigation-background-color;
+	@include mixins.transition(background .3s);
 	
-	@media (min-width: $landscape-width){
+	@media (min-width: variables.$landscape-width){
 		height: auto;
 	}
 	
@@ -47,7 +51,7 @@
 	
 	// Bootstrap container fix
 	> .container{
-		@include flex();
+		@include flex.flex();
 	}
 }
 
@@ -55,11 +59,11 @@
 ================================*/
 .navigation-header{
 	width: 100%;
-	@include flex();
-	@include flexAlignCenterVertically();
-	@include flexAlignBetween();
+	@include flex.flex();
+	@include flex.flexAlignCenterVertically();
+	@include flex.flexAlignBetween();
 	
-	@media (min-width: $landscape-width){
+	@media (min-width: variables.$landscape-width){
 		display: none;
 	}
 }
@@ -74,7 +78,7 @@
 	top: 0;
 	opacity: 0;
 	z-index: -999999;
-	@include transition(opacity .8s);
+	@include mixins.transition(opacity .8s);
 	
 	&.is-visible{
 		width: 100%;
@@ -87,7 +91,7 @@
 		opacity: 0;
 	}
 	
-	@media (min-width: $landscape-width){
+	@media (min-width: variables.$landscape-width){
 		&.is-visible{
 			display: none !important;
 		}

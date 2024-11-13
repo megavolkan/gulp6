@@ -1,53 +1,57 @@
+@use "flex-mixins/flex";
+@use "mixins";
+@use "variables";
+
 
 /* NAVIGATION BODY
 ================================*/
 .navigation-body{
-	width: $navigation-offcanvas-width;
+	width: variables.$navigation-offcanvas-width;
 	height: 100%;
 	position: fixed;
 	top: 0;
 	left: -100%;
 	overflow-x: hidden;
 	overflow-y: auto;
-	background-color: $navigation-body-background-color;
+	background-color: variables.$navigation-body-background-color;
 	z-index: 20000;
-	@include transition(left .8s cubic-bezier(.1, .1, .1, .1), right .8s cubic-bezier(.1, .1, .1, .1));
+	@include mixins.transition(left .8s cubic-bezier(.1, .1, .1, .1), right .8s cubic-bezier(.1, .1, .1, .1));
 	
-	@media (min-width: $navigation-offcanvas-medium-large-breakpoint){
-		width: $navigation-offcanvas-medium-large-width;
+	@media (min-width: variables.$navigation-offcanvas-medium-large-breakpoint){
+		width: variables.$navigation-offcanvas-medium-large-width;
 	}
 	
-	@media (min-width: $landscape-width){
-		@include flex();
-		@include flexAlignCenterVertically();
+	@media (min-width: variables.$landscape-width){
+		@include flex.flex();
+		@include flex.flexAlignCenterVertically();
 		width: 100%;
 		position: relative;
 		left: auto;
 		overflow: visible;
 		z-index: auto;
 		background-color: transparent;
-		@include transition(all 0s ease 0s);
+		@include mixins.transition(all 0s ease 0s);
 	}
 	
 	&.offcanvas-right{
 		left: auto;
 		right: -100%;
 		
-		@media (min-width: $landscape-width){
+		@media (min-width: variables.$landscape-width){
 			right: auto;
 		}
 	}
 	
 	&.is-visible{
 		left: 0;
-		@include transition(left .8s, right .8s);
+		@include mixins.transition(left .8s, right .8s);
 	}
 	
 	&.offcanvas-right.is-visible{
 		right: 0;
 		left: auto;
 		
-		@media (min-width: $landscape-width){
+		@media (min-width: variables.$landscape-width){
 			right: auto;
 		}
 	}
@@ -64,33 +68,33 @@
 		-webkit-overflow-scrolling: touch;
 	}
 	
-	@media (min-width: $landscape-width){
+	@media (min-width: variables.$landscape-width){
 		// Centered navigation 
 		.navigation-centered &{
-			@include flexAlignCenter();
+			@include flex.flexAlignCenter();
 		}
 		
 		// Justified navigation
 		.navigation-justified &{
-			@include flexAlignBetween();
+			@include flex.flexAlignBetween();
 		}
 		
 		// Navigation with logo on top
 		.navigation-logo-top &{
-			@include flexColumn();
+			@include flex.flexColumn();
 		}
 	}
 }
 
 // Navigation body header
 .navigation-body-header{
-	@include flex();
-	@include flexAlignCenterVertically();
-	@include flexAlignBetween();
-	padding: $navigation-body-header-padding;
-	border-bottom: solid 1px $navigation-body-header-border;
+	@include flex.flex();
+	@include flex.flexAlignCenterVertically();
+	@include flex.flexAlignBetween();
+	padding: variables.$navigation-body-header-padding;
+	border-bottom: solid 1px variables.$navigation-body-header-border;
 	
-	@media (min-width: $landscape-width){
+	@media (min-width: variables.$landscape-width){
 		border: none;
 		
 		.navigation-centered &{	
@@ -104,20 +108,20 @@
 
 // Close button
 .navigation-body-close-button{
-	@include flex();
-	@include flexAlignCenter();
-	@include flexAlignCenterVertically();
+	@include flex.flex();
+	@include flex.flexAlignCenter();
+	@include flex.flexAlignCenterVertically();
 	width: 30px;
 	height: 30px;
 	margin-left: auto;
 	padding-bottom: 2px;
 	line-height: initial;
 	text-align: center;
-	font-size: $navigation-body-close-button-font-size;
-	color: $navigation-body-close-button-color;
+	font-size: variables.$navigation-body-close-button-font-size;
+	color: variables.$navigation-body-close-button-color;
 	cursor: pointer;
 	
-	@media (min-width: $landscape-width){
+	@media (min-width: variables.$landscape-width){
 		display: none;
 	}
 }
@@ -125,11 +129,11 @@
 // Navigation body section
 .navigation-body-section{
 	width: 100%;
-	padding: $navigation-body-section-padding;
+	padding: variables.$navigation-body-section-padding;
 	display: inline-flex;
-	@include flexColumn();
+	@include flex.flexColumn();
 	
-	@media (min-width: $landscape-width){
+	@media (min-width: variables.$landscape-width){
 		width: auto;
 		display: inline-block;
 	}
@@ -137,8 +141,8 @@
 	& + &{
 		padding-top: 0;	
 		
-		@media (min-width: $landscape-width){
-			padding-top: $navigation-body-section-padding;
+		@media (min-width: variables.$landscape-width){
+			padding-top: variables.$navigation-body-section-padding;
 		}
 	}
 }

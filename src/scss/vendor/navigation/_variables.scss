@@ -1,3 +1,4 @@
+@use "sass:color";
 // GENERAL
 // ================================================
 
@@ -21,10 +22,10 @@ $main-color:   	#7367F0 !default; // purple
 // MAIN COLORS
 // ================================================
 $background-color: $white;
-$font-color: lighten($gray-05, 5%);
+$font-color: color.adjust($gray-05, $lightness: 5%);
 $font-color-hover: $main-color;
 $border-color: $gray-02;
-$submenu-background-color: lighten($gray-01, 1.5%);
+$submenu-background-color: color.adjust($gray-01, $lightness: 1.5%);
 
 
 // NAVIGATION
@@ -177,7 +178,7 @@ $navigation-input-border-radius: 4px;
 
 // SEARCH ICON
 // ================================================
-$navigation-search-icon-color: lighten($font-color, 30%);
+$navigation-search-icon-color: color.adjust($font-color, $lightness: 30%);
 $navigation-search-icon-color-hover: $font-color-hover;
 
 
@@ -188,7 +189,7 @@ $dropdown-max-height: 2500px;
 $dropdown-background-color: $submenu-background-color;
 $dropdown-box-shadow-landscape: 0 12px 20px -5px rgba(0, 0, 0, 0.05);
 $dropdown-box-shadow-landscape-first-level: inset 0 1px 0 $border-color, 0 12px 20px -5px rgba(0, 0, 0, 0.05);
-$dropdown-item-background-color-active: lighten($gray-02, 4%);
+$dropdown-item-background-color-active: color.adjust($gray-02, $lightness: 4%);
 $dropdown-link-border-color: $border-color;
 $dropdown-link-font-color: $font-color;
 $dropdown-link-font-color-hover: $main-color;
@@ -207,7 +208,7 @@ $dropdown-link-padding-level-6: 128px;
 // DROPDOWN HORIZONTAL
 // ================================================
 $dropdown-horizontal-link-padding: 19px 19px;
-$dropdown-horizontal-border-top-color: lighten($border-color, 3%);
+$dropdown-horizontal-border-top-color: color.adjust($border-color, $lightness: 3%);
 $dropdown-horizontal-box-shadow-landscape: inset 0 1px 0 $border-color, 0 12px 20px -5px rgba(0, 0, 0, 0.05);
 
 
@@ -229,7 +230,7 @@ $navigation-list-padding: 0 20px 0 0;
 $navigation-list-border-color: $border-color;
 $navigation-list-link-padding: 10px 30px 10px 30px;
 $navigation-list-link-font-size: 13px;
-$navigation-list-background-color-hover: lighten($gray-02, 4%);
+$navigation-list-background-color-hover: color.adjust($gray-02, $lightness: 4%);
 $navigation-list-heading-padding: 0 16px 13px;
 $navigation-list-heading-color: $font-color;
 $navigation-list-font-color-hover: $font-color-hover;

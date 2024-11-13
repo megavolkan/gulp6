@@ -1,3 +1,7 @@
+@use "flex-mixins/flex";
+@use "mixins";
+@use "variables";
+
 
 /* NAVIGATION MENU
 ================================*/
@@ -10,18 +14,18 @@
 	display: inline-block;
 	float: left;
 	
-	@media (min-width: $landscape-width){
+	@media (min-width: variables.$landscape-width){
 		width: auto;
-		@include flex();
-		@include flexAlignCenterVertically();
+		@include flex.flex();
+		@include flex.flexAlignCenterVertically();
 		
 		.navigation &{
-			@include flexSelfStretch();
-			@include flexStretch();
+			@include flex.flexSelfStretch();
+			@include flex.flexStretch();
 		}
 		
 		.navigation-logo-top &{
-			@include flexAlignCenter();
+			@include flex.flexAlignCenter();
 		}
 	}
 }
@@ -33,7 +37,7 @@
 	float: left;
 	display: inline-block;
 	
-	@media (min-width: $landscape-width){
+	@media (min-width: variables.$landscape-width){
 		width: auto;
 	}
 }
@@ -41,22 +45,22 @@
 /* Navbar link */ 
 .navigation-link{
 	width: 100%;
-	padding: $navigation-link-padding;
-	@include flex();
-	@include flexAlignCenterVertically();
+	padding: variables.$navigation-link-padding;
+	@include flex.flex();
+	@include flex.flexAlignCenterVertically();
 	position: relative;
-	font-size: $navigation-link-font-size;
-	letter-spacing: $navigation-link-letter-spacing;
-	color: $navigation-link-font-color;
-	border-bottom: solid 1px $navigation-link-border-color;
-	@include transition(color .3s);
+	font-size: variables.$navigation-link-font-size;
+	letter-spacing: variables.$navigation-link-letter-spacing;
+	color: variables.$navigation-link-font-color;
+	border-bottom: solid 1px variables.$navigation-link-border-color;
+	@include mixins.transition(color .3s);
 	
 	&:visited{
-		color: $navigation-link-font-color;
+		color: variables.$navigation-link-font-color;
 	}
 	
 	.navigation-item:last-child &{
-		@media (min-width: $landscape-width){
+		@media (min-width: variables.$landscape-width){
 			border-top: none;
 			border-bottom: none;
 		}
@@ -66,39 +70,39 @@
 	.navigation-item:not(.navigation-brand-text):focus &,
 	.navigation-item:not(.navigation-brand-text).is-active &{
 		text-decoration: none !important;
-		color: $navigation-link-font-color-hover;
-		background-color: $navigation-link-background-color-hover;
+		color: variables.$navigation-link-font-color-hover;
+		background-color: variables.$navigation-link-background-color-hover;
 	}
 	
-	@media (min-width: $landscape-width){
+	@media (min-width: variables.$landscape-width){
 		height: 100%;
-		padding: $navigation-link-padding-landscape;
-		line-height: $navigation-height;
+		padding: variables.$navigation-link-padding-landscape;
+		line-height: variables.$navigation-height;
 		border: none;
 	}
 	
 	.navigation-menu.navigation-social-menu + .navigation-menu:not(.navigation-social-menu) .navigation-item:first-child &{
-		border-top: solid 1px $navigation-link-border-color;
+		border-top: solid 1px variables.$navigation-link-border-color;
 		
-		@media (min-width: $landscape-width){
+		@media (min-width: variables.$landscape-width){
 			border-top: none;
 		}
 	}
 	
 	// Link with icons and text
 	i{
-		width: $navigation-link-text-icon-width;
+		width: variables.$navigation-link-text-icon-width;
 		float: left;
 		text-align: center;
-		font-size: $navigation-link-text-icon-font-size;
+		font-size: variables.$navigation-link-text-icon-font-size;
 		line-height: 0;
 		
 		// Font Awesome 5 icons
 		&[class*=fa]{
-			font-size: $navigation-link-text-icon-font-awesome-size;
+			font-size: variables.$navigation-link-text-icon-font-awesome-size;
 		}
 		
-		@media (min-width: $landscape-width){
+		@media (min-width: variables.$landscape-width){
 			width: auto;
 		}
 		
@@ -109,41 +113,41 @@
 	
 	// Icon item
 	.navigation-icon-item &{
-		padding: $navigation-link-icon-item-padding;
+		padding: variables.$navigation-link-icon-item-padding;
 		
-		@media (min-width: $landscape-width){
+		@media (min-width: variables.$landscape-width){
 			width: 100%;
 			margin: 0;
-			padding: $navigation-link-icon-item-padding-landscape;
-			border-left: solid 1px $navigation-link-border-color;
+			padding: variables.$navigation-link-icon-item-padding-landscape;
+			border-left: solid 1px variables.$navigation-link-border-color;
 		}	
 		
 		span:not(.submenu-indicator){
-			@media (min-width: $landscape-width){
+			@media (min-width: variables.$landscape-width){
 				display: none;
 			}
 		}
 		
 		.navigation-badge{
-			@media (min-width: $landscape-width){
+			@media (min-width: variables.$landscape-width){
 				right: 10px;
 			}
 		}
 		
 		i{				
-			@media (min-width: $landscape-width){
-				width: $navigation-link-icon-item-icon-width;
-				height: $navigation-link-icon-item-icon-height;
+			@media (min-width: variables.$landscape-width){
+				width: variables.$navigation-link-icon-item-icon-width;
+				height: variables.$navigation-link-icon-item-icon-height;
 				margin: 0;
 				line-height: 26px;
 				text-align: center;
 				float: left;
-				font-size: $navigation-link-icon-item-font-size;
+				font-size: variables.$navigation-link-icon-item-font-size;
 				
 				// Font Awesome 5 icons
 				&[class*=fa]{
 					width: auto;
-					font-size: $navigation-link-icon-item-font-awesome-size;
+					font-size: variables.$navigation-link-icon-item-font-awesome-size;
 				}
 			}
 		}
@@ -151,13 +155,13 @@
 	
 	// Avatar item
 	.navigation-avatar-item &{
-		font-size: $navigation-link-avatar-font-size;
-		font-weight: $navigation-link-avatar-font-weight;
+		font-size: variables.$navigation-link-avatar-font-size;
+		font-weight: variables.$navigation-link-avatar-font-weight;
 		
 		img{
-			width: $navigation-link-avatar-image-width;
-			border: solid 2px $navigation-link-avatar-border-color;
-			border-radius: $navigation-link-avatar-border-radius;
+			width: variables.$navigation-link-avatar-image-width;
+			border: solid 2px variables.$navigation-link-avatar-border-color;
+			border-radius: variables.$navigation-link-avatar-border-radius;
 		}
 		
 		span{
@@ -166,9 +170,9 @@
 	}
 	
 	.navigation-body-section + .navigation-menu:not(.navigation-social-menu) > .navigation-item:first-child > &{
-		border-top: solid 1px $navigation-link-border-color;
+		border-top: solid 1px variables.$navigation-link-border-color;
 		
-		@media (min-width: $landscape-width){
+		@media (min-width: variables.$landscape-width){
 			border-top: none;
 		}
 	}

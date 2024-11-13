@@ -1,31 +1,31 @@
 
 // Mixins
-@import 'navigation/mixins';
+@use 'navigation/mixins';
 
 // Variables
-@import 'navigation/variables';
+@use 'navigation/variables';
 
 // navigation
-@import 'navigation/_navigation.core';
-@import 'navigation/_navigation.brand.text';
-@import 'navigation/_navigation.logo';
-@import 'navigation/_navigation.toggler.button';
-@import 'navigation/_navigation.body';
-@import 'navigation/_navigation.menu';
-@import 'navigation/_navigation.menu.social';
-@import 'navigation/_navigation.submenu.indicator';
-@import 'navigation/_navigation.button';
-@import 'navigation/_navigation.text';
-@import 'navigation/_navigation.badge';
-@import 'navigation/_navigation.inline.form';
-@import 'navigation/_navigation.dropdown';
-@import 'navigation/_navigation.dropdown.horizontal';
-@import 'navigation/_navigation.megamenu';
-@import 'navigation/_navigation.megamenu.grid';
-@import 'navigation/_navigation.megamenu.list';
-@import 'navigation/_navigation.tabs';
-@import 'navigation/_navigation.transparent';
-@import 'navigation/_navigation.fullscreen';
+@use 'navigation/_navigation.core';
+@use 'navigation/_navigation.brand.text' as navigation2;
+@use 'navigation/_navigation.logo' as navigation3;
+@use 'navigation/_navigation.toggler.button' as navigation4;
+@use 'navigation/_navigation.body' as navigation5;
+@use 'navigation/_navigation.menu' as navigation6;
+@use 'navigation/_navigation.menu.social' as navigation7;
+@use 'navigation/_navigation.submenu.indicator' as navigation8;
+@use 'navigation/_navigation.button' as navigation9;
+@use 'navigation/_navigation.text' as navigation10;
+@use 'navigation/_navigation.badge' as navigation11;
+@use 'navigation/_navigation.inline.form' as navigation12;
+@use 'navigation/_navigation.dropdown' as navigation13;
+@use 'navigation/_navigation.dropdown.horizontal' as navigation14;
+@use 'navigation/_navigation.megamenu' as navigation15;
+@use 'navigation/_navigation.megamenu.grid' as navigation16;
+@use 'navigation/_navigation.megamenu.list' as navigation17;
+@use 'navigation/_navigation.tabs' as navigation18;
+@use 'navigation/_navigation.transparent' as navigation19;
+@use 'navigation/_navigation.fullscreen' as navigation20;
 
 // Skins 
 // Uncomment one of the lines below to include a skin in the final CSS file (navigation.css)
@@ -42,4 +42,4 @@
 //@import 'navigation/skins/_navigation.dark';
 
 // Utilities
-@import 'navigation/_utilities';
+@use 'navigation/_utilities';

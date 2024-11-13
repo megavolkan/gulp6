@@ -1,15 +1,17 @@
+@use "variables";
+
 
 /* NAVIGATION BRAND TEXT
 ================================*/
 .navigation-brand-text{	
 	a{
-		font-size: $navigation-brand-font-size;
-		font-weight: $navigation-brand-font-weight;
-		color: $navigation-brand-color;
+		font-size: variables.$navigation-brand-font-size;
+		font-weight: variables.$navigation-brand-font-weight;
+		color: variables.$navigation-brand-color;
 		text-decoration: none;
 		
-		@media (min-width: $landscape-width){
-			font-size: $navigation-brand-font-size-landscape;
+		@media (min-width: variables.$landscape-width){
+			font-size: variables.$navigation-brand-font-size-landscape;
 		}
 	}
 	

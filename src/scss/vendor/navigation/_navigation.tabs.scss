@@ -1,3 +1,6 @@
+@use "mixins";
+@use "variables";
+
 
 /* NAVIGATION TABS
 ================================*/
@@ -6,17 +9,17 @@
 	float: left;
 	display: block;
 	position: relative;
-	background-color: $navigation-tabs-background-color;
-	box-shadow: $navigation-tabs-box-shadow;
+	background-color: variables.$navigation-tabs-background-color;
+	box-shadow: variables.$navigation-tabs-box-shadow;
 	
-	@media (min-width: $landscape-width){
+	@media (min-width: variables.$landscape-width){
 		&:after{
 			content: "";
 			width: 80%;
 			height: 100%;
 			position: absolute;
 			right: 0;
-			background-color: $navigation-tabs-background-color-hover;
+			background-color: variables.$navigation-tabs-background-color-hover;
 			z-index: 99;
 		}
 	}
@@ -29,27 +32,27 @@
 	float: left;
 	list-style: none;
 	
-	@media (min-width: $landscape-width){
+	@media (min-width: variables.$landscape-width){
 		width: 20%;
 	}
 	
 	> li{
 		a{
 			width: 100%;
-			padding: $navigation-tabs-link-padding;
+			padding: variables.$navigation-tabs-link-padding;
 			float: left;
-			font-size: $navigation-tabs-link-font-size;
+			font-size: variables.$navigation-tabs-link-font-size;
 			text-decoration: none;
-			color: $navigation-tabs-font-color;
+			color: variables.$navigation-tabs-font-color;
 			outline: 0;
-			background-color: $navigation-tabs-background-color;
-			@include transition(background .3s);
+			background-color: variables.$navigation-tabs-background-color;
+			@include mixins.transition(background .3s);
 		}
 		
 		&.is-active a,
 		&:hover a,
 		&:active a{
-			background-color: $navigation-tabs-background-color-hover;
+			background-color: variables.$navigation-tabs-background-color-hover;
 		}
 	}
 }
@@ -57,23 +60,23 @@
 .navigation-tabs-pane{
 	width: 100%;
 	min-height: 30px;
-	padding: $navigation-tabs-pane-padding;
+	padding: variables.$navigation-tabs-pane-padding;
 	float: right;
 	display: none;
 	position: relative;
 	opacity: 0;
-	font-size: $navigation-tabs-pane-font-size;
-	color: $navigation-tabs-font-color;
+	font-size: variables.$navigation-tabs-pane-font-size;
+	color: variables.$navigation-tabs-font-color;
 	z-index: 100;
-	background-color: $navigation-tabs-background-color-hover;
-	@include transition(opacity .5s);
+	background-color: variables.$navigation-tabs-background-color-hover;
+	@include mixins.transition(opacity .5s);
 	
 	&.is-active{
 		display: block;
 		opacity: 1;
 	}
 	
-	@media (min-width: $landscape-width){
+	@media (min-width: variables.$landscape-width){
 		width: 80%;
 	}
 }

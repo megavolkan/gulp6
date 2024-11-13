@@ -1,3 +1,7 @@
+@use "flex-mixins/flex";
+@use "mixins";
+@use "variables";
+
 
 /* MEGAMENU LIST
 ================================*/
@@ -7,7 +11,7 @@
 	padding: 0;
 	list-style: none;
 	
-	@media (min-width: $landscape-width){
+	@media (min-width: variables.$landscape-width){
 		[class^=navigation-col]:last-of-type &{
 			padding: 0;
 		}
@@ -18,21 +22,21 @@
 		margin: 0;
 		
 		> a{
-			padding: $navigation-list-link-padding;
-			@include flex();
-			@include flexAlignCenterVertically();
+			padding: variables.$navigation-list-link-padding;
+			@include flex.flex();
+			@include flex.flexAlignCenterVertically();
 			position: relative;
-			font-size: $navigation-list-link-font-size;
-			color: $font-color;
+			font-size: variables.$navigation-list-link-font-size;
+			color: variables.$font-color;
 			text-decoration: none;
-			@include transition(color .3s, background .3s);
+			@include mixins.transition(color .3s, background .3s);
 			&:hover{
-				color: $navigation-list-font-color-hover;
-				background-color: $navigation-list-background-color-hover;
+				color: variables.$navigation-list-font-color-hover;
+				background-color: variables.$navigation-list-background-color-hover;
 			}
 			
-			@media (min-width: $landscape-width){
-				border-right: solid 1px $navigation-list-border-color;
+			@media (min-width: variables.$landscape-width){
+				border-right: solid 1px variables.$navigation-list-border-color;
 			}
 			
 			[class^=navigation-col]:last-of-type &{
@@ -45,7 +49,7 @@
 			position: absolute;
 			left: 12px;
 			font-size: 9px;
-			@include transform(rotate(45deg));
+			@include mixins.transform(rotate(45deg));
 		}
 	}
 }
@@ -55,10 +59,10 @@
 	font-weight: bold;
 	
 	> a{
-		padding: $navigation-list-heading-padding !important;;
+		padding: variables.$navigation-list-heading-padding !important;;
 		
 		&:hover{
-			color: $navigation-list-heading-color !important;
+			color: variables.$navigation-list-heading-color !important;
 			background-color: transparent !important;
 		}
 	}

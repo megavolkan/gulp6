@@ -1,20 +1,23 @@
+@use "flex-mixins/flex";
+@use "variables";
+
 
 /* NAVIGATION LOGO
 ================================*/
 .navigation-logo{
-	@include flex();
-	@include flexAlignCenterVertically();
+	@include flex.flex();
+	@include flex.flexAlignCenterVertically();
 	
 	a{
-		@include flex();
-		@include flexAlignCenterVertically();
+		@include flex.flex();
+		@include flex.flexAlignCenterVertically();
 		
 		img{
-			height: $navigation-logo-height;
+			height: variables.$navigation-logo-height;
 			display: block;
 			
-			@media (min-width: $landscape-width){
-				height: $navigation-logo-height-landscape;
+			@media (min-width: variables.$landscape-width){
+				height: variables.$navigation-logo-height-landscape;
 			}
 		}
 	}

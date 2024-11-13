@@ -1,3 +1,6 @@
+@use "mixins";
+@use "variables";
+
 
 /* MEGAMENU
 ================================*/
@@ -7,29 +10,29 @@
 	overflow: hidden;
 	display: block;
 	position: static;
-	font-size: $megamenu-font-size;
-	color: $megamenu-font-color;
+	font-size: variables.$megamenu-font-size;
+	color: variables.$megamenu-font-color;
 	z-index: 20001;
-	background-color: $megamenu-background-color;
-	@include transition(max-height 2s cubic-bezier(0, 1, 0, 1));
+	background-color: variables.$megamenu-background-color;
+	@include mixins.transition(max-height 2s cubic-bezier(0, 1, 0, 1));
 
 	&.is-visible{
-		max-height: $megamenu-max-height;
-		border-bottom: solid 1px $megamenu-border-color;
-		@include transition(max-height 5s ease-out);
+		max-height: variables.$megamenu-max-height;
+		border-bottom: solid 1px variables.$megamenu-border-color;
+		@include mixins.transition(max-height 5s ease-out);
 	}
 
-	@media (min-width: $landscape-width){
+	@media (min-width: variables.$landscape-width){
 		position: absolute;
 		opacity: 0;
 		border-top: solid 0px transparent;
-		box-shadow: $megamenu-box-shadow-landscape;
-		@include transition(opacity .3s linear, max-height 0s linear .4s);
+		box-shadow: variables.$megamenu-box-shadow-landscape;
+		@include mixins.transition(opacity .3s linear, max-height 0s linear .4s);
 
 		&.is-visible{
 			opacity: 1;
 			border-bottom: none;
-			@include transition(opacity .3s linear, max-height 0s linear);
+			@include mixins.transition(opacity .3s linear, max-height 0s linear);
 		}
 
 		// Widths
@@ -42,10 +45,10 @@
 	}
 
 	.scroll-momentum &{
-		@include transform(translateZ(0));
+		@include mixins.transform(translateZ(0));
 
-		@media (min-width: $landscape-width){
-			@include transform(none);
+		@media (min-width: variables.$landscape-width){
+			@include mixins.transform(none);
 		}
 	}
 
@@ -60,6 +63,6 @@
 
 // Megamenu container
 .navigation-megamenu-container{
-	padding: $megamenu-container-padding;
+	padding: variables.$megamenu-container-padding;
 	display: table;
 }

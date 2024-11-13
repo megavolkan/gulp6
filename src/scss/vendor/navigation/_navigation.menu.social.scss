@@ -1,18 +1,21 @@
+@use "flex-mixins/flex";
+@use "variables";
+
 
 /* NAVIGATION SOCIAL MENU
 ================================*/
 .navigation-social-menu{
-	@include flex();
-	@include flexAlignCenter();
+	@include flex.flex();
+	@include flex.flexAlignCenter();
 	width: 100%;
-	padding: $navigation-social-menu-padding;
+	padding: variables.$navigation-social-menu-padding;
 	text-align: center;
 	
-	@media (min-width: $landscape-width){
+	@media (min-width: variables.$landscape-width){
 		width: auto;
 	}
 	
-	@media (max-width: $landscape-width - 1px){
+	@media (max-width: variables.$landscape-width - 1px){
 		padding: 16px;
 	}
 	
@@ -22,20 +25,20 @@
 		
 		.navigation-link{
 			margin: 0;
-			padding: $navigation-social-menu-link-padding;
+			padding: variables.$navigation-social-menu-link-padding;
 			border: none;
 			
 			i{
-				@include flex();
-				@include flexAlignCenter();
-				@include flexAlignCenterVertically();
-				width: $navigation-social-menu-icon-width;
-				height: $navigation-social-menu-icon-height;
+				@include flex.flex();
+				@include flex.flexAlignCenter();
+				@include flex.flexAlignCenterVertically();
+				width: variables.$navigation-social-menu-icon-width;
+				height: variables.$navigation-social-menu-icon-height;
 				margin: 0;
 				line-height: initial;
-				font-size: $navigation-social-menu-icon-size;
-				border-radius: $navigation-social-menu-icon-border-radius;
-				background-color: $navigation-social-menu-icon-background-color;
+				font-size: variables.$navigation-social-menu-icon-size;
+				border-radius: variables.$navigation-social-menu-icon-border-radius;
+				background-color: variables.$navigation-social-menu-icon-background-color;
 				
 				&:not([class*=fa]):before{
 					margin-right: -1px;
@@ -54,7 +57,7 @@
 			}
 		}
 		
-		@media (max-width: $landscape-width - 1px){
+		@media (max-width: variables.$landscape-width - 1px){
 			display: flex;
 		}
 	}

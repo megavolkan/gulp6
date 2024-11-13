@@ -1,50 +1,52 @@
+@use "variables";
+
 
 /* TRANSPARENT NAVIGATION
  ================================*/
 .navigation-transparent{
-	background-color: $transparent-navigation-background-color;
+	background-color: variables.$transparent-navigation-background-color;
 	
 	.navigation-header{
 		 .navigation-brand-text{	
 			a{
-				color: $transparent-navigation-brand-color;
+				color: variables.$transparent-navigation-brand-color;
 			}
 		}
 	}
 	
-	@media (min-width: $landscape-width){
+	@media (min-width: variables.$landscape-width){
 		.navigation-body .navigation-brand-text{	
 			a{
-				color: $transparent-navigation-brand-color;
+				color: variables.$transparent-navigation-brand-color;
 			}
 		}
 	}
 	
 	.navigation-button-toggler{
 		.hamburger-icon{
-			color: $transparent-navigation-toggler-icon-color;
+			color: variables.$transparent-navigation-toggler-icon-color;
 		}
 	}
 	
-	@media (min-width: $landscape-width){		
+	@media (min-width: variables.$landscape-width){		
 		.navigation-link{
-			color: $transparent-navigation-link-font-color;
+			color: variables.$transparent-navigation-link-font-color;
 			
 			> .submenu-indicator:after{
-				border-color: transparent $transparent-submenu-indicator-color $transparent-submenu-indicator-color transparent;
+				border-color: transparent variables.$transparent-submenu-indicator-color variables.$transparent-submenu-indicator-color transparent;
 			}
 		}
 		
 		.navigation-item:hover > .navigation-link > .submenu-indicator:after,
 		.navigation-item:focus > .navigation-link > .submenu-indicator:after,
 		.navigation-item.is-active > .navigation-link > .submenu-indicator:after{
-			border-color: transparent $transparent-submenu-indicator-color-hover $transparent-submenu-indicator-color-hover transparent;
+			border-color: transparent variables.$transparent-submenu-indicator-color-hover variables.$transparent-submenu-indicator-color-hover transparent;
 		}
 		
 		.navigation-item:not(.navigation-brand-text):hover .navigation-link,
 		.navigation-item:not(.navigation-brand-text):focus .navigation-link,
 		.navigation-item:not(.navigation-brand-text).is-active .navigation-link{
-			color: $transparent-navigation-link-font-color;
+			color: variables.$transparent-navigation-link-font-color;
 		}
 		
 		.navigation-icon-item .navigation-link{
@@ -52,9 +54,9 @@
 		}
 	}
 	
-	@media (min-width: $landscape-width){
+	@media (min-width: variables.$landscape-width){
 		.navigation-input{
-			color: $transparent-navigation-input-font-color;
+			color: variables.$transparent-navigation-input-font-color;
 			background-color: rgba(255, 255, 255, 0.01);
 			border-color: rgba(255, 255, 255, 0.05);
 			
@@ -73,7 +75,7 @@
 		}
 	}
 	
-	@media (min-width: $landscape-width){
+	@media (min-width: variables.$landscape-width){
 		.navigation-social-menu{
 			.navigation-link{
 				i{
@@ -83,7 +85,7 @@
 		}
 	}
 	
-	@media (min-width: $landscape-width){
+	@media (min-width: variables.$landscape-width){
 		.navigation-item > .navigation-dropdown,
 		.navigation-megamenu.is-visible{
 			border-top-color: transparent;

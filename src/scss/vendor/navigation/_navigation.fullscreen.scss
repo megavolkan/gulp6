@@ -1,14 +1,17 @@
+@use "flex-mixins/flex";
+@use "variables";
+
 
 /* NAVIGATION FULLSCREEN
  ================================*/
- @media (max-width: $landscape-width - 1px){
+ @media (max-width: variables.$landscape-width - 1px){
 	.navigation-fullscreen{
 		.navigation-body{
 			width: 100%;
-			@include flex();
-			@include flexAlignCenter();
-			@include flexAlignCenterVertically();
-			@include flexColumn();
+			@include flex.flex();
+			@include flex.flexAlignCenter();
+			@include flex.flexAlignCenterVertically();
+			@include flex.flexColumn();
 		}
 		
 		.navigation-body-header{
@@ -41,7 +44,7 @@
 			border: none;
 		}
 		.navigation-link{
-			@include flexAlignCenter();
+			@include flex.flexAlignCenter();
 		}
 		.navigation-dropdown-link{
 			text-align: center;

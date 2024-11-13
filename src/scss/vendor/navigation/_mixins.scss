@@ -1,6 +1,6 @@
 
 // Flex
-@import 'flex-mixins/flex';
+@use 'flex-mixins/flex';
 
 // Transition
 @mixin transition($args...) {

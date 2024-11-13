@@ -1,15 +1,20 @@
+@use "sass:color";
+@use "flex-mixins/flex";
+@use "mixins";
+@use "variables";
+
 
 /* NAVIGATION INLINE FORM
 ================================*/
 .navigation-inline-form{
 	position: relative;
 	
-	@media (min-width: $landscape-width){
-		@include flex();
+	@media (min-width: variables.$landscape-width){
+		@include flex.flex();
 	}
 	
 	.navigation-btn{
-		@include flex();
+		@include flex.flex();
 		width: auto;
 		height: 100%;
 		position: absolute;
@@ -23,32 +28,32 @@
 
 .navigation-input{
 	width: 100%;
-	padding: $navigation-input-padding;
+	padding: variables.$navigation-input-padding;
 	outline-width: 0;
-	font-size: $navigation-input-font-size;
-	color: $navigation-input-font-color;
+	font-size: variables.$navigation-input-font-size;
+	color: variables.$navigation-input-font-color;
 	line-height: 1.4;
 	box-shadow: none;
-	border-radius: $navigation-input-border-radius;
-	background-color: lighten($navigation-input-background-color, 1%);
+	border-radius: variables.$navigation-input-border-radius;
+	background-color: color.adjust(variables.$navigation-input-background-color, $lightness: 1%);
 	border-style: solid;
 	border-width: 1px;
-	border-color: $navigation-input-border-color;
-	@include transition(border .3s);
+	border-color: variables.$navigation-input-border-color;
+	@include mixins.transition(border .3s);
 	
 	&:hover,
 	&:focus{
-		border-color: $navigation-input-border-color-hover;
+		border-color: variables.$navigation-input-border-color-hover;
 	}
 	
 	&::placeholder{
-		color: lighten($navigation-input-font-color, 1%);
+		color: color.adjust(variables.$navigation-input-font-color, $lightness: 1%);
 	}
 	&:-ms-input-placeholder{
-		color: lighten($navigation-input-font-color, 1%);
+		color: color.adjust(variables.$navigation-input-font-color, $lightness: 1%);
 	}
 	&::-ms-input-placeholder{
-		color: lighten($navigation-input-font-color, 1%);
+		color: color.adjust(variables.$navigation-input-font-color, $lightness: 1%);
 	}
 }
 
@@ -58,13 +63,13 @@
     display: inline-block;
     vertical-align: middle;
     position: relative;
-    color: $navigation-search-icon-color;
+    color: variables.$navigation-search-icon-color;
     text-align: left;
     text-indent: -9999px;
 	border: 2px solid;
 	border-radius: 50%;
-	@include transform(rotate(-45deg));
-	@include transition(color .3s);
+	@include mixins.transform(rotate(-45deg));
+	@include mixins.transition(color .3s);
 	
 	&:after, 
 	&:before {
@@ -79,10 +84,10 @@
 		left: 50%;
 		border-radius: 0 0 1px 1px;
 		box-shadow: inset 0 0 0 32px;
-		@include transform(translateX(-50%));
+		@include mixins.transform(translateX(-50%));
 	}
 	
 	.navigation-btn:hover &{
-		color: $navigation-search-icon-color-hover;
+		color: variables.$navigation-search-icon-color-hover;
 	}
 }

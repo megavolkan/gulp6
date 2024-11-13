@@ -1,8 +1,11 @@
+@use "mixins";
+@use "variables";
+
 
 /* SUBMENU INDICATOR
 ================================*/
 .submenu-indicator{
-	width: $submenu-indicator-width;
+	width: variables.$submenu-indicator-width;
 	height: 100%;
 	position: absolute;
 	top: 0;
@@ -10,9 +13,9 @@
 	z-index: 20000;
 	//background: lightblue;
 	
-	@media (min-width: $landscape-width){
-		width: $submenu-indicator-width-landscape;
-		height: $submenu-indicator-height-landscape;
+	@media (min-width: variables.$landscape-width){
+		width: variables.$submenu-indicator-width-landscape;
+		height: variables.$submenu-indicator-height-landscape;
 		margin-left: 6px;
 		float: right;
 		position: relative;
@@ -24,32 +27,32 @@
 	}
 	
 	&:after{
-		height: $submenu-indicator-width-after;
-		width: $submenu-indicator-height-after;
-		margin: $submenu-indicator-margin-after;
+		height: variables.$submenu-indicator-width-after;
+		width: variables.$submenu-indicator-height-after;
+		margin: variables.$submenu-indicator-margin-after;
 		top: 50%;
 		left: 50%;
 		content: "";
 		position: absolute;
 		border-style: solid;
-		border-width: 0 $submenu-indicator-border-width-after $submenu-indicator-border-width-after 0;
-		border-color: transparent $submenu-indicator-color $submenu-indicator-color transparent;
-		@include transform(rotate(45deg));
-		@include transition(border .3s, transform .3s);
+		border-width: 0 variables.$submenu-indicator-border-width-after variables.$submenu-indicator-border-width-after 0;
+		border-color: transparent variables.$submenu-indicator-color variables.$submenu-indicator-color transparent;
+		@include mixins.transform(rotate(45deg));
+		@include mixins.transition(border .3s, transform .3s);
 		
 		.navigation-item:hover > .navigation-link > &,
 		.navigation-item:focus > .navigation-link > &,
 		.navigation-item.is-active > .navigation-link > &{
-			border-color: transparent $submenu-indicator-color-hover $submenu-indicator-color-hover transparent;
+			border-color: transparent variables.$submenu-indicator-color-hover variables.$submenu-indicator-color-hover transparent;
 		}
 	}
 
 	
 	&.is-active:after{
-		@include transform(rotate(-135deg));
+		@include mixins.transform(rotate(-135deg));
 		
-		@media (min-width: $landscape-width){
-			@include transform(rotate(45deg));
+		@media (min-width: variables.$landscape-width){
+			@include mixins.transform(rotate(45deg));
 		}
 	}
 }
