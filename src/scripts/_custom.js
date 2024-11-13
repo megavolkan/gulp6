@@ -1,11 +1,22 @@
 (function () {
   "use strict";
 
-  const slider = new Swiper(".mySwiper", {
-    pagination: {
-      el: ".swiper-pagination",
-    },
-  });
+  // const slider = new Swiper(".mySwiper", {
+  //   pagination: {
+  //     el: ".swiper-pagination",
+  //   },
+  // });
+
+  function mainNavigation() {
+    const navigation = new Navigation(document.getElementById("navigation"), {
+      //breakpoint: 1024,
+      //overlay: false,
+      //overlayColor: "#31A6FF",
+      // onInit: function () {
+      //   alert("Initialized");
+      // }
+    });
+  }
 
   function heroSlider() {
     if (document.querySelector('.hero-slider')) {
@@ -104,6 +115,7 @@
     })
   }
 
+  mainNavigation()
   // heroSlider()
   // telefonInput()
   // onceSonraSlider()
