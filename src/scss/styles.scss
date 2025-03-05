@@ -1,3 +1,4 @@
+@use "sass:color";
 @use "inc";
 @use "vendor";
 
@@ -163,6 +164,97 @@
 
   .v-center {
     align-items: end;
+  }
+
+  // Define Sass variables for colors
+  $clr-primary: red;
+  $clr-primary-darken-10: color.adjust($clr-primary, $lightness: -10%);
+  $clr-primary-darken-20: color.adjust($clr-primary, $lightness: -20%);
+
+  // Base button styles
+  .button {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    border-radius: var(--radius);
+    transition: var(--transition-all);
+    background-color: var(--clr-primary);
+    color: #fff;
+    line-height: 1; // Ensure consistent line height
+    vertical-align: middle; // Align elements vertically
+
+    &:hover,
+    &:focus {
+      background-color: $clr-primary-darken-10;
+    }
+
+    &:active {
+      background-color: $clr-primary-darken-20;
+    }
+
+    &.button-primary {
+      background-color: var(--clr-primary);
+      color: #fff;
+
+      &:hover,
+      &:focus {
+        background-color: $clr-primary-darken-10;
+      }
+
+      &:active {
+        background-color: $clr-primary-darken-20;
+      }
+    }
+
+    &.button-outline {
+      background-color: transparent;
+      border: 2px solid var(--clr-primary);
+      color: var(--clr-primary);
+
+      &:hover,
+      &:focus {
+        background-color: var(--clr-primary);
+        color: #fff;
+      }
+
+      &:active {
+        background-color: $clr-primary-darken-10;
+        color: #fff;
+      }
+    }
+
+    &.button-sm {
+      padding: 0.25rem 0.5rem;
+      font-size: 0.875rem;
+    }
+
+    &.button-lg {
+      padding: 0.75rem 1.5rem;
+      font-size: 1.25rem;
+    }
+
+    &.button-outline-sm {
+      @extend .button-outline;
+      padding: 0.25rem 0.5rem;
+      font-size: 0.875rem;
+    }
+
+    &.button-outline-lg {
+      @extend .button-outline;
+      padding: 0.75rem 1.5rem;
+      font-size: 1.25rem;
+    }
+  }
+
+  // Apply button styles to anchor tags and HTML buttons
+  a.button,
+  button.button {
+    @extend .button;
   }
 }
 
