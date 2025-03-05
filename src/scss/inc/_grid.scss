@@ -5,6 +5,26 @@
 // CodePen: https://codepen.io/kevinpowell/pen/yyLYoZO?editors=1100
 
 $columns: 12;
+$gap: 1rem;
+
+.gap-0 {
+  gap: 0 !important;
+}
+.gap-1 {
+  gap: ($gap * 0.25) !important;
+}
+.gap-2 {
+  gap: ($gap * 0.5) !important;
+}
+.gap-3 {
+  gap: $gap !important;
+}
+.gap-4 {
+  gap: ($gap * 1.5) !important;
+}
+.gap-5 {
+  gap: ($gap * 2) !important;
+}
 
 .auto-grid {
   display: grid;
@@ -22,50 +42,43 @@ $columns: 12;
   gap: var(--gap, 1rem);
   grid-template-columns: repeat($columns, 1fr);
 
-  // @media (min-width: m.$md) {
-  //   grid-template-columns: repeat(
-  //     var(--grid-type, auto-fit),
-  //     minmax(min(180px, 100%), 1fr)
-  //   );
-  // }
-}
-@for $i from 1 through $columns {
-  [class^="span-"],
-  [class^="sm\:span-"],
-  [class^="sm\:span-"],
-  [class^="md\:span-"],
-  [class^="lg\:span-"],
-  [class^="xl\:span-"],
-  [class^="xxl\:span-"] {
-    grid-column: 1 / -1;
+  @for $i from 1 through $columns {
+    [class^="span-"],
+    [class^="sm\:span-"],
+    [class^="md\:span-"],
+    [class^="lg\:span-"],
+    [class^="xl\:span-"],
+    [class^="xxl\:span-"] {
+      grid-column: 1 / -1;
+    }
   }
-}
 
-@for $i from 1 through $columns {
-  @media (min-width: m.$md) {
-    .md\:span-#{$i} {
-      grid-column: span #{$i} !important;
+  @for $i from 1 through $columns {
+    @media (min-width: m.$md) {
+      .md\:span-#{$i} {
+        grid-column: span #{$i} !important;
+      }
     }
   }
-}
-@for $i from 1 through $columns {
-  @media (min-width: m.$lg) {
-    .lg\:span-#{$i} {
-      grid-column: span #{$i} !important;
+  @for $i from 1 through $columns {
+    @media (min-width: m.$lg) {
+      .lg\:span-#{$i} {
+        grid-column: span #{$i} !important;
+      }
     }
   }
-}
-@for $i from 1 through $columns {
-  @media (min-width: m.$xl) {
-    .xl\:span-#{$i} {
-      grid-column: span #{$i} !important;
+  @for $i from 1 through $columns {
+    @media (min-width: m.$xl) {
+      .xl\:span-#{$i} {
+        grid-column: span #{$i} !important;
+      }
     }
   }
-}
-@for $i from 1 through $columns {
-  @media (min-width: m.$xxl) {
-    .xxl\:span-#{$i} {
-      grid-column: span #{$i} !important;
+  @for $i from 1 through $columns {
+    @media (min-width: m.$xxl) {
+      .xxl\:span-#{$i} {
+        grid-column: span #{$i} !important;
+      }
     }
   }
 }
