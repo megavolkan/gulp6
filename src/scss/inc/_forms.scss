@@ -1,0 +1,173 @@
+@use "sass:color";
+@use "sass:meta";
+@use "sass:string";
+$primary-color: #4a90e2;
+$border-radius: 0.5rem;
+$input-padding: 12px;
+$border-color: #ccc;
+$small-input-padding: 8px;
+$small-font-size: 14px;
+$large-input-padding: 16px;
+$large-font-size: 18px;
+
+@mixin transition($properties...) {
+  transition: $properties 0.3s ease-in-out;
+}
+
+@mixin focus-style {
+  outline: none;
+  border-color: $primary-color;
+  box-shadow: 0 0 5px rgba($primary-color, 0.5);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  ::placeholder {
+    color: #cdcdcd;
+  }
+}
+
+label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #333;
+  line-height: 1.1;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: $input-padding;
+  font-size: 16px;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  background: #fff;
+  @include transition(border-color, box-shadow);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  &:focus {
+    @include focus-style;
+  }
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+select {
+  $encoded-color: "%23" + string.slice(meta.inspect($primary-color), 2);
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="#{$encoded-color}"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+  padding-right: 36px;
+}
+
+button {
+  padding: $input-padding;
+  border: none;
+  border-radius: $border-radius;
+  background: $primary-color;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  @include transition(background);
+
+  &:hover {
+    background: color.scale($primary-color, $lightness: -10%);
+  }
+
+  &:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+  }
+}
+
+/* Checkbox & Radio */
+input[type="checkbox"],
+input[type="radio"] {
+  width: 14px;
+  height: 14px;
+  border: 2px solid $border-color;
+  border-radius: 4px;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  background: #fff;
+  @include transition(border-color, background);
+
+  &:checked {
+    border-color: $primary-color;
+    background: $primary-color;
+  }
+}
+
+input[type="radio"] {
+  border-radius: 50%;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  &:has(input[type="checkbox"]),
+  &:has(input[type="radio"]) {
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+  }
+}
+
+/* Small form styles */
+form.form-sm {
+  gap: 12px;
+}
+
+form.form-sm input,
+form.form-sm textarea,
+form.form-sm select {
+  padding: $small-input-padding;
+  font-size: $small-font-size;
+}
+
+form.form-sm button {
+  padding: $small-input-padding;
+  font-size: $small-font-size;
+}
+
+form.form-sm input[type="checkbox"],
+form.form-sm input[type="radio"] {
+  width: 10px;
+  height: 10px;
+}
+
+/* Large form styles */
+form.form-lg {
+  gap: 20px;
+}
+
+form.form-lg input,
+form.form-lg textarea,
+form.form-lg select {
+  padding: $large-input-padding;
+  font-size: $large-font-size;
+}
+
+form.form-lg button {
+  padding: $large-input-padding;
+  font-size: $large-font-size;
+}
+
+form.form-lg input[type="checkbox"],
+form.form-lg input[type="radio"] {
+  width: 16px;
+  height: 16px;
+}

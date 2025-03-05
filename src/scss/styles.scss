@@ -1,96 +1,180 @@
 @use "inc";
 @use "vendor";
 
-// Custom CSS Rules
-:root {
-  --transition-all: all ease-in-out 0.3s;
-  --font-family: "Montserrat", sans-serif; //400, 600, 800
+@layer general-styling {
+  :root {
+    --primary-font: "Poppins", serif; //100-900
+    --heading-font: "Noto Serif Display", serif; //100-900
+    --transition-all: all ease-in-out 0.3s;
 
-  --mor: #914b9d;
-  --acik-mor: #ebebeb;
-  --mavi: #4c85b9;
-  --heading-color: #604d63;
-  --gri: #796f7a;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    --clr-primary: red;
+    --clr-secondary: blue;
+    --clr-gri: #858585;
+    --clr-light: #dadada;
+    --clr-dark: #454545;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    --radius-sm: 0.25rem;
+    --radius: 0.5rem;
+    --radius-lg: 0.8rem;
+
+    --gap: 24px;
+    --navigation-height: 74px;
+    --slider-button-size: 40px;
+    --slider-inline: 5rem;
+
+    @include inc.mobil {
+      --gap: 16px;
+      --navigation-height: 60px;
+      --slider-inline: 1rem;
+    }
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  * {
+    margin: 0;
+  }
+
+  html,
+  body {
+    font-family: var(--primary-font);
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--clr-gri);
+    line-height: 1.3;
+    width: 100%;
+    //height: 100%;
+    scroll-behavior: smooth;
+    background: #f3f7f8;
+    position: relative;
+    isolation: isolate;
+    // color-scheme: dark;
+
+    //margin-top: calc(var(--navigation-height) + var(--gap) * 2);
+  }
+
+  // body {
+  //   display: grid;
+  //   grid-template-rows: auto 1fr auto;
+  // }
+
+  a {
+    transition: var(--transition-all);
+    text-decoration: none;
+  }
+
+  h1,
+  .h1,
+  h2,
+  .h2,
+  h3,
+  .h3,
+  h4,
+  .h4,
+  h5,
+  .h5,
+  h6,
+  .h6 {
+    font-family: var(--heading-font);
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  @for $i from 100 through 900 {
+    .fw-#{$i} {
+      font-weight: #{$i} !important;
+    }
+  }
+
+  .fs-italic {
+    font-style: italic !important;
+  }
+
+  .text-black {
+    color: #000 !important;
+  }
+  .text-white {
+    color: #fff !important;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .body-copy {
+    line-height: 1.65;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    font-weight: 400;
+  }
+
+  .section-title {
+    color: var(--clr-primary);
+    font-weight: 400;
+    font-size: clamp(1.5rem, 5vw - 1rem, 3rem);
+    margin-bottom: 1rem;
+  }
+
+  .hidden-desktop {
+    @include inc.desktop {
+      display: none;
+    }
+  }
+
+  .hidden-mobil {
+    @include inc.mobil {
+      display: none;
+    }
+  }
+
+  section.section {
+    padding-block: clamp(2rem, 7vw, 8rem);
+
+    & + section.section {
+      padding-top: 0;
+    }
+  }
+
+  .flow > * + * {
+    margin-top: var(--flow-spacing, 1em);
+  }
+
+  img {
+    max-width: 100%;
+    display: block;
+  }
+
+  .flex-group {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .space-between {
+    justify-content: space-between;
+  }
+
+  .v-center {
+    align-items: end;
+  }
 }
+
+// General Styling End
+
+// --------------- CSS DEBUG -------------------
+// ---------------------------------------------
 
 // * {
 //   //outline: 1px solid limegreen !important;
 //   background: rgb(0 100 0 / 0.1) !important;
 // }
 
-html,
-body {
-  font-family: var(--font-family);
-  font-weight: 400;
-  font-size: 16px;
-  color: #555;
-  line-height: 1.8;
-  width: 100%;
-  height: 100%;
-  scroll-behavior: smooth;
-  background-color: #fff;
-  position: relative;
-}
-
-a {
-  transition: var(--transition-all);
-  text-decoration: none;
-}
-
-img {
-  max-width: 100%;
-  display: block;
-}
-
-.h1,
-h2,
-.h2,
-h3,
-.h3,
-h4,
-.h4,
-h5,
-.h5,
-h6,
-.h6 {
-  //font-family: var(--heading-font);
-  font-weight: 600;
-  color: var(--mor);
-}
-
-.fw-400 {
-  font-weight: 400 !important;
-}
-
-.fw-600 {
-  font-weight: 600 !important;
-}
-
-.fw-800 {
-  font-weight: 800 !important;
-}
-
-.hidden-desktop {
-  @include inc.desktop {
-    display: none;
-  }
-}
-
-.hidden-mobil {
-  @include inc.mobil {
-    display: none;
-  }
-}
-
-section.section {
-  padding-block: clamp(2rem, 7vw, 8rem);
-
-  & + section.section {
-    padding-top: 0;
-  }
-}
+// ------------- CSS DEBUG END -----------------
+// ---------------------------------------------

@@ -1,0 +1,145 @@
+// Define your base spacer value
+$spacer: 1rem;
+
+// Function to calculate spacing
+@function spacer($i) {
+  @return $spacer * $i;
+}
+
+// ---------------------------------------------
+// Margin Utilities
+// ---------------------------------------------
+
+@for $i from 1 through 10 {
+  // Positive margins
+  .m-#{$i} {
+    margin: spacer($i);
+  }
+  .mt-#{$i} {
+    margin-top: spacer($i);
+  }
+  .mb-#{$i} {
+    margin-bottom: spacer($i);
+  }
+  .mx-#{$i} {
+    margin-inline: spacer($i);
+  }
+  .my-#{$i} {
+    margin-block: spacer($i);
+  }
+  .ms-#{$i} {
+    margin-inline-start: spacer($i);
+  }
+  .me-#{$i} {
+    margin-inline-end: spacer($i);
+  }
+}
+
+@for $i from 1 through 10 {
+  // Negative margins
+  .m-n#{$i} {
+    margin: -spacer($i);
+  }
+  .mt-n#{$i} {
+    margin-top: -spacer($i);
+  }
+  .mb-n#{$i} {
+    margin-bottom: -spacer($i);
+  }
+  .mx-n#{$i} {
+    margin-inline: -spacer($i);
+  }
+  .my-n#{$i} {
+    margin-block: -spacer($i);
+  }
+  .ms-n#{$i} {
+    margin-inline-start: -spacer($i);
+  }
+  .me-n#{$i} {
+    margin-inline-end: -spacer($i);
+  }
+}
+
+// ---------------------------------------------
+// Padding Utilities
+// ---------------------------------------------
+
+@for $i from 1 through 10 {
+  .p-#{$i} {
+    padding: spacer($i);
+  }
+  .pt-#{$i} {
+    padding-top: spacer($i);
+  }
+  .pb-#{$i} {
+    padding-bottom: spacer($i);
+  }
+  .px-#{$i} {
+    padding-inline: spacer($i);
+  }
+  .py-#{$i} {
+    padding-block: spacer($i);
+  }
+  .ps-#{$i} {
+    padding-inline-start: spacer($i);
+  }
+  .pe-#{$i} {
+    padding-inline-end: spacer($i);
+  }
+}
+
+.m-auto {
+  margin: auto;
+}
+
+.mt-auto {
+  margin-top: auto;
+}
+
+.mb-auto {
+  margin-bottom: auto;
+}
+
+.mx-auto {
+  margin-inline: auto;
+}
+
+.my-auto {
+  margin-block: auto;
+}
+
+.ms-auto {
+  margin-inline-start: auto;
+}
+
+.me-auto {
+  margin-inline-end: auto;
+}
+
+.p-auto {
+  padding: auto;
+}
+
+.pt-auto {
+  padding-top: auto;
+}
+
+.pb-auto {
+  padding-bottom: auto;
+}
+
+.px-auto {
+  padding-inline: auto;
+}
+
+.py-auto {
+  padding-block: auto;
+}
+
+.ps-auto {
+  padding-inline-start: auto;
+}
+
+.pe-auto {
+  padding-inline-end: auto;
+}

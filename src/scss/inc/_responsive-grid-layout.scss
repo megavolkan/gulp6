@@ -1,16 +1,24 @@
-// Custom Responsive Grid Layout
+// Author: Kevin Powell
+// Source: https://youtu.be/c13gpBrnGEw?si=sKUnGNleaK4jZkgi
+// CodePen: https://codepen.io/kevinpowell/pen/ExrZrrw
+
 .content-grid {
   --padding-inline: 1rem;
-  --content-max-width: 900px;
-  --breakout-max-width: 1200px;
+  --content-max-width: 1400px;
+  --breakout-max-width: 1400px;
 
-  --breakout-size: calc((var(--breakout-max-width) - var(--content-max-width)) / 2);
+  --breakout-size: calc(
+    (var(--breakout-max-width) - var(--content-max-width)) / 2
+  );
 
   display: grid;
   grid-template-columns:
     [full-width-start] minmax(var(--padding-inline), 1fr)
     [breakout-start] minmax(0, var(--breakout-size))
-    [content-start] min(100% - (var(--padding-inline) * 2), var(--content-max-width))
+    [content-start] min(
+      100% - (var(--padding-inline) * 2),
+      var(--content-max-width)
+    )
     [content-end]
     minmax(0, var(--breakout-size)) [breakout-end]
     minmax(var(--padding-inline), 1fr) [full-width-end];
@@ -31,10 +39,3 @@
   display: grid;
   grid-template-columns: inherit;
 }
-
-img.full-width {
-  width: 100%;
-  max-height: 45vh;
-  object-fit: cover;
-}
-// Custom Responsive Grid Layout
