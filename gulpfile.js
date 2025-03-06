@@ -14,6 +14,12 @@ const browserSync = require('browser-sync').create()
 // File Includes
 function fileincludeTask() {
   return src(['src/views/**/*.html', '!src/views/**/_*.html'])
+    .pipe(plumber({
+      errorHandler: function (err) {
+        console.log(err);
+        this.emit('end');
+      }
+    }))
     .pipe(fileinclude({
       prefix: '@@',
       basepath: '@file'
@@ -24,6 +30,12 @@ function fileincludeTask() {
 // Scss Task w/o Reload
 function scssTask() {
   return src(['src/scss/**/*.scss', '!src/scss/vendor/bootstrap_source/**/*.*'], { sourcemaps: true })
+    .pipe(plumber({
+      errorHandler: function (err) {
+        console.log(err);
+        this.emit('end');
+      }
+    }))
     .pipe(sass())
     .pipe(postcss([cssnano()]))
     .pipe(dest('dist/assets/css', { sourcemaps: '.' }))
@@ -33,6 +45,12 @@ function scssTask() {
 // Scss Task w/o Reload
 function bsScssTask() {
   return src(['src/scss/**/*.scss', '!src/scss/vendor/bootstrap_source/**/*.*'], { sourcemaps: true })
+    .pipe(plumber({
+      errorHandler: function (err) {
+        console.log(err);
+        this.emit('end');
+      }
+    }))
     .pipe(sass())
     .pipe(postcss([cssnano()]))
     .pipe(dest('dist/assets/css', { sourcemaps: '.' }))
@@ -50,6 +68,12 @@ function jsTask() {
     // 'src/scripts/_fslightbox.js',
     'src/scripts/_custom.js'
   ], { sourcemaps: true })
+    .pipe(plumber({
+      errorHandler: function (err) {
+        console.log(err);
+        this.emit('end');
+      }
+    }))
     .pipe(concat('script.js'))
     .pipe(terser())
     .pipe(dest('dist/assets/js', { sourcemaps: '.' }))
@@ -82,10 +106,6 @@ function browsersyncReload(done) {
   done()
 }
 
-function plumb(done) {
-  plumber()
-  done()
-}
 
 
 // Watch Task
@@ -96,8 +116,8 @@ function watchTask() {
   watch('src/scss/**/*.scss', scssTask) // Sadece css dosyalarını hot reload inject 
   // src klasöründe .scss ve .js dosyalarında değişiklik olduğunda tarayıcıyı reload
   //watch(['src/scss/**/*.scss', 'src/scripts/**/*.js', 'src/views/**/*.html'], series(scssTask, jsTask, fileincludeTask, browsersyncReload))
-  watch('src/views/**/*.html', series(parallel(plumb, bsScssTask, fileincludeTask), browsersyncReload))
-  watch('src/scripts/**/*.js', series(plumb, jsTask, browsersyncReload))
+  watch('src/views/**/*.html', series(parallel(bsScssTask, fileincludeTask), browsersyncReload))
+  watch('src/scripts/**/*.js', series(jsTask, browsersyncReload))
 }
 
 // Customize Bootstrap SCSS
