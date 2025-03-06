@@ -3,6 +3,7 @@ const { src, dest, watch, series, parallel } = require('gulp');
 const cssnano = require('cssnano')
 const sass = require('gulp-sass')(require('sass'))
 const postcss = require('gulp-postcss')
+const plumber = require('gulp-plumber')
 const concat = require('gulp-concat')
 const terser = require('gulp-terser')
 const fileinclude = require('gulp-file-include')
@@ -81,6 +82,11 @@ function browsersyncReload(done) {
   done()
 }
 
+function plumb(done) {
+  plumber()
+  done()
+}
+
 
 // Watch Task
 function watchTask() {
@@ -90,8 +96,8 @@ function watchTask() {
   watch('src/scss/**/*.scss', scssTask) // Sadece css dosyalarını hot reload inject 
   // src klasöründe .scss ve .js dosyalarında değişiklik olduğunda tarayıcıyı reload
   //watch(['src/scss/**/*.scss', 'src/scripts/**/*.js', 'src/views/**/*.html'], series(scssTask, jsTask, fileincludeTask, browsersyncReload))
-  watch('src/views/**/*.html', series(parallel(bsScssTask, fileincludeTask), browsersyncReload))
-  watch('src/scripts/**/*.js', series(jsTask, browsersyncReload))
+  watch('src/views/**/*.html', series(parallel(plumb, bsScssTask, fileincludeTask), browsersyncReload))
+  watch('src/scripts/**/*.js', series(plumb, jsTask, browsersyncReload))
 }
 
 // Customize Bootstrap SCSS
