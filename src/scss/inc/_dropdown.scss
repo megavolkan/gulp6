@@ -1,0 +1,99 @@
+/* Base dropdown styles */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-toggle {
+  background-color: #007bff;
+  color: #fff;
+  padding: 12px 16px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+}
+
+/* Optional dropdown indicator for dropdowns with .toggle-icon */
+.dropdown.toggle-icon .dropdown-toggle {
+  padding-right: 30px; /* Space for the indicator */
+}
+
+.dropdown.toggle-icon .dropdown-toggle::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  width: 12px;
+  height: 12px;
+  transform: translateY(-30%);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='0,0 12,0 6,6' fill='%23fff'/%3E%3C/svg%3E");
+  background-size: 12px 12px;
+  background-repeat: no-repeat;
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+.dropdown.toggle-icon.show .dropdown-toggle::after {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  left: 0;
+  background-color: #fff;
+  min-width: 160px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  z-index: 1000;
+  margin-top: 4px;
+  padding: 0;
+}
+
+.dropdown-menu li {
+  list-style: none;
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 10px 16px;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.dropdown-menu li a:hover,
+.dropdown-menu li a:focus {
+  background-color: #f1f1f1;
+}
+
+/* Show dropdown when active */
+.dropdown.show .dropdown-menu {
+  display: block;
+}
+
+/* Mobile touch enhancements */
+@media (hover: none) {
+  .dropdown-toggle {
+    padding: 16px 20px;
+    font-size: 18px;
+  }
+  .dropdown-menu li a {
+    padding: 16px 20px;
+  }
+}
+
+/* Hover-to-open functionality for desktops */
+@media (hover: hover) {
+  .dropdown.hover:hover .dropdown-menu {
+    display: block;
+  }
+  .dropdown.hover:hover .dropdown-toggle::after {
+    transform: translateY(-50%) rotate(180deg);
+  }
+}
