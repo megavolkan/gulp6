@@ -1,0 +1,42 @@
+// 📌 Breakpoint'ler
+$breakpoints: (
+  "xs": 480px,
+  "sm": 768px,
+  "md": 1024px,
+  "lg": 1280px,
+  "xl": 1440px,
+);
+
+// 📌 Grid container genişliği
+$container-width: 1200px;
+
+// 📌 Renkler
+$clr-primary: #007bff;
+$clr-secondary: #6c757d;
+$clr-bg: #f8f9fa;
+$clr-text: #212529;
+
+// 📌 Tipografi
+$base-font-size: 16px;
+$primary-font: "Inter", sans-serif;
+$secondary-font: "Georgia", serif;
+
+// 📌 Border Radius
+$border-radius-sm: 4px;
+$border-radius-md: 8px;
+$border-radius-lg: 16px;
+
+// 📌 Sosyal Medya Renkleri
+$social-whatsapp: #25d366;
+$social-youtube: #ff0000;
+$social-facebook: #1877f2;
+$social-twitter: #1da1f2;
+$social-instagram: #e1306c;
+$social-linkedin: #0077b5;
+$social-tiktok: #000000;
+$social-snapchat: #fffc00;
+$social-pinterest: #e60023;
+$social-telegram: #0088cc;
+
+// 📌 Instagram Degrade (Gradient)
+$social-instagram-gradient: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4);
