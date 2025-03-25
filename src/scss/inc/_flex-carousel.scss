@@ -1,0 +1,25 @@
+.flex-carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  /* scroll-snap-type: x proximity; */
+  gap: 1rem;
+}
+
+.flex-carousel-item {
+  flex: 0 0 90%;
+  padding-inline: 1rem;
+  scroll-snap-align: start;
+}
+
+@media (min-width: 768px) {
+  .flex-carousel {
+    gap: 1rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .flex-carousel-item {
+    padding-inline: 0;
+  }
+}
