@@ -26,13 +26,19 @@ $gap: 1rem;
   gap: ($gap * 2) !important;
 }
 
+.grid > [class*="span-sm"],
+.grid > [class*="span-md"],
+.grid > [class*="span-lg"],
+.grid > [class*="span-xl"],
+.grid > [class*="span-xxl"],
+.grid > [class*="span-"] {
+  grid-column: 1 / -1;
+}
+
 .auto-grid {
   display: grid;
   gap: var(--gap, 1rem);
-  grid-template-columns: repeat(
-    var(--grid-type, auto-fit),
-    minmax(min(180px, 100%), 1fr)
-  );
+  grid-template-columns: repeat(var(--grid-type, auto-fit), minmax(min(180px, 100%), 1fr));
   //grid-auto-rows: 120px auto auto;
   container-type: inline-size;
 }
@@ -43,40 +49,29 @@ $gap: 1rem;
   grid-template-columns: repeat($columns, 1fr);
 
   @for $i from 1 through $columns {
-    [class^="span-"],
-    [class^="sm\:span-"],
-    [class^="md\:span-"],
-    [class^="lg\:span-"],
-    [class^="xl\:span-"],
-    [class^="xxl\:span-"] {
-      grid-column: 1 / -1;
-    }
-  }
-
-  @for $i from 1 through $columns {
     @media (min-width: m.$md) {
-      .md\:span-#{$i} {
+      .span-md-#{$i} {
         grid-column: span #{$i} !important;
       }
     }
   }
   @for $i from 1 through $columns {
     @media (min-width: m.$lg) {
-      .lg\:span-#{$i} {
+      .span-lg-#{$i} {
         grid-column: span #{$i} !important;
       }
     }
   }
   @for $i from 1 through $columns {
     @media (min-width: m.$xl) {
-      .xl\:span-#{$i} {
+      .span-xl-#{$i} {
         grid-column: span #{$i} !important;
       }
     }
   }
   @for $i from 1 through $columns {
     @media (min-width: m.$xxl) {
-      .xxl\:span-#{$i} {
+      .span-xxl-#{$i} {
         grid-column: span #{$i} !important;
       }
     }
