@@ -49,6 +49,13 @@ $gap: 1rem;
   grid-template-columns: repeat($columns, 1fr);
 
   @for $i from 1 through $columns {
+    @media (max-width: m.$sm) {
+      .span-sm-#{$i} {
+        grid-column: span #{$i} !important;
+      }
+    }
+  }
+  @for $i from 1 through $columns {
     @media (min-width: m.$md) {
       .span-md-#{$i} {
         grid-column: span #{$i} !important;
