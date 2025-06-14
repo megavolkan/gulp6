@@ -1,0 +1,98 @@
+// Base button styles
+.button {
+  display: inline-block;
+  padding: 1rem 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  border-radius: var(--radius-sm);
+  transition: var(--transition-all);
+  background-color: var(--clr-primary);
+  color: #fff;
+  line-height: 1; // Ensure consistent line height
+  vertical-align: middle; // Align elements vertically
+
+  &:hover,
+  &:focus {
+    filter: brightness(0.75); // %10 koyulaştırır
+  }
+
+  &:active {
+    filter: brightness(0.6); // %20 koyulaştırır
+  }
+
+  &.button-primary {
+    background-color: var(--clr-primary);
+    color: #fff;
+
+    &:hover,
+    &:focus {
+      filter: brightness(0.75);
+    }
+
+    &:active {
+      filter: brightness(0.6);
+    }
+  }
+  &.button-secondary {
+    background-color: var(--clr-secondary);
+    color: #fff;
+
+    &:hover,
+    &:focus {
+      filter: brightness(0.9);
+    }
+
+    &:active {
+      filter: brightness(0.8);
+    }
+  }
+
+  &.button-outline {
+    background-color: transparent;
+    border: 2px solid var(--clr-primary);
+    color: var(--clr-primary);
+
+    &:hover,
+    &:focus {
+      background-color: var(--clr-primary);
+      color: #fff;
+    }
+
+    &:active {
+      background-color: var(--clr-primary);
+      color: #fff;
+    }
+  }
+
+  &.button-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+  }
+
+  &.button-lg {
+    padding: 0.75rem 1.5rem;
+    font-size: 1.25rem;
+  }
+
+  &.button-outline-sm {
+    @extend .button-outline;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+  }
+
+  &.button-outline-lg {
+    @extend .button-outline;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.25rem;
+  }
+}
+
+// Apply button styles to anchor tags and HTML buttons
+a.button,
+button.button {
+  @extend .button;
+}
