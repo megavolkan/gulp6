@@ -1,25 +1,46 @@
 {
-  "name": "gulp5",
+  "name": "gulp6",
   "version": "1.0.0",
-  "description": "Gulp 5 Boilerplate",
-  "main": "index.js",
+  "description": "Gulp 5 Frontend Development Workflow",
+  "main": "gulpfile.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "gulp",
+    "start": "gulp",
+    "scss": "gulp scss",
+    "js": "gulp js",
+    "html": "gulp html",
+    "clean": "gulp clean",
+    "bootstrap": "gulp bootstrap"
   },
+  "keywords": [
+    "gulp",
+    "sass",
+    "browserify",
+    "frontend",
+    "workflow"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "browser-sync": "^3.0.2",
-    "cssnano": "^7.0.1",
+    "autoprefixer": "^10.4.20",
+    "browser-sync": "^3.0.3",
+    "cssnano": "^7.0.6",
+    "del": "^8.0.0",
     "gulp": "^5.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-file-include": "^2.3.0",
+    "gulp-if": "^3.0.0",
+    "gulp-newer": "^1.4.0",
     "gulp-plumber": "^1.2.1",
     "gulp-postcss": "^10.0.0",
     "gulp-rename": "^2.0.0",
     "gulp-sass": "^5.1.0",
     "gulp-terser": "^2.1.0",
-    "postcss": "^8.4.38",
-    "sass": "^1.77.0"
+    "postcss": "^8.4.47",
+    "sass": "^1.80.3"
+  },
+  "overrides": {
+    "glob": "^10.0.0",
+    "rimraf": "^6.0.0"
   }
 }
