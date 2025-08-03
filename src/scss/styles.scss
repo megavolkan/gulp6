@@ -101,6 +101,12 @@
   .text-white {
     color: #fff !important;
   }
+  .text-primary {
+    color: var(--clr-primary) !important;
+  }
+  .text-secondary {
+    color: var(--clr-secondary) !important;
+  }
 
   .bg-primary {
     background-color: var(--clr-primary) !important;
@@ -108,22 +114,29 @@
   .bg-secondary {
     background-color: var(--clr-secondary) !important;
   }
+  .bg-light {
+    background-color: var(--clr-light) !important;
+  }
   .text-center {
     text-align: center;
   }
 
-  .body-copy {
-    line-height: 1.65;
-    letter-spacing: 2px;
-    font-size: 0.8rem;
-    font-weight: 400;
+  hr {
+    border: none;
+    border-bottom: 1px solid #cecece;
+    margin-block: 1rem;
   }
 
-  .section-title {
-    color: var(--clr-primary);
-    font-weight: 400;
-    font-size: clamp(1.5rem, 5vw - 1rem, 3rem);
-    margin-bottom: 1rem;
+  strong {
+    font-weight: 700;
+  }
+
+  .body-copy,
+  .haber-yazilar p {
+    line-height: 1.85;
+    font-size: 1.1rem;
+    font-weight: 300;
+    margin-bottom: 10px;
   }
 
   .hidden-desktop {

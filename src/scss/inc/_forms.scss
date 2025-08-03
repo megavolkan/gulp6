@@ -31,7 +31,7 @@ form {
 }
 
 label {
-  font-size: 13px;
+  font-size: 11px;
   font-weight: 600;
   color: #333;
   line-height: 1.1;
@@ -42,7 +42,7 @@ textarea,
 select {
   width: 100%;
   padding: $input-padding;
-  font-size: 16px;
+  font-size: 14px;
   border: 1px solid $border-color;
   border-radius: $border-radius;
   background: #fff;
@@ -50,9 +50,25 @@ select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  box-shadow: 0 2px 2px rgb(0 0 0 / 0.1);
 
   &:focus {
     @include focus-style;
+  }
+
+  &::placeholder {
+    color: #333;
+  }
+
+  &:active,
+  &:focus-visible,
+  &:focus {
+    box-shadow: none;
+    border-color: green;
+
+    &::placeholder {
+      opacity: 0.25;
+    }
   }
 }
 
