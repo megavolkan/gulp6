@@ -5,7 +5,6 @@ const path = require("path");
 const cssnano = require("cssnano");
 const sass = require("gulp-sass")(require("sass"));
 const postcss = require("gulp-postcss");
-const autoprefixer = require("autoprefixer");
 const plumber = require("gulp-plumber");
 const concat = require("gulp-concat");
 const terser = require("gulp-terser");
@@ -81,10 +80,6 @@ function scssTask() {
     )
     .pipe(
       postcss([
-        autoprefixer({
-          grid: true,
-          overrideBrowserslist: ["> 1%", "last 3 versions", "Firefox ESR"],
-        }),
         ...(isProduction
           ? [
               cssnano({
@@ -117,10 +112,6 @@ function bsScssTask() {
     )
     .pipe(
       postcss([
-        autoprefixer({
-          grid: true,
-          overrideBrowserslist: ["> 1%", "last 3 versions", "Firefox ESR"],
-        }),
         ...(isProduction
           ? [
               cssnano({
@@ -216,8 +207,8 @@ function watchTask() {
   // Watch SCSS files for hot CSS injection
   watch([paths.src.scss, paths.src.scssExclude], scssTask);
 
-  // Watch HTML files
-  watch(paths.src.html, series(fileincludeTask, browsersyncReload));
+  // Watch HTML files (including underscore files)
+  watch(["src/views/**/*.html"], series(fileincludeTask, browsersyncReload));
 
   // Watch JS files
   watch("src/scripts/**/*.js", series(jsTask, browsersyncReload));
