@@ -5,7 +5,7 @@
 // CodePen: https://codepen.io/kevinpowell/pen/yyLYoZO?editors=1100
 
 $columns: 12;
-$gap: 1rem;
+$gap: 2vw;
 
 .gap-0 {
   gap: 0 !important;
@@ -24,6 +24,15 @@ $gap: 1rem;
 }
 .gap-5 {
   gap: ($gap * 2) !important;
+}
+.gap-6 {
+  gap: ($gap * 3) !important;
+}
+.gap-7 {
+  gap: ($gap * 4) !important;
+}
+.gap-8 {
+  gap: ($gap * 5) !important;
 }
 
 .grid > [class*="span-sm"],
