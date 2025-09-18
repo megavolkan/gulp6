@@ -85,9 +85,9 @@
     line-height: 1.3;
   }
 
-  @for $i from 100 through 900 {
-    .fw-#{$i} {
-      font-weight: #{$i} !important;
+  @for $i from 1 through 9 {
+    .fw-#{$i * 100} {
+      font-weight: #{$i * 100} !important;
     }
   }
 
