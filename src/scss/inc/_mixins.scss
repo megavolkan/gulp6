@@ -56,3 +56,10 @@ $xxl: 1400px;
 // @include mobil {
 //   font-size: 1rem;
 // }
+
+@mixin bg-overlay($image, $color: #000, $opacity: 0.5) {
+  background: linear-gradient(rgba($color, $opacity), rgba($color, $opacity)), url(#{$image}) center/cover no-repeat;
+}
+
+//KULLANIM
+//  @include inc.bg-overlay("../img/hakkimizda-bina.webp", #000, 0.5);
