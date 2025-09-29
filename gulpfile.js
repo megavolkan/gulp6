@@ -54,7 +54,6 @@ function clean() {
 function fileincludeTask() {
   return src(paths.src.html)
     .pipe(plumber(errorHandler))
-    .pipe(newer(paths.dist.html))
     .pipe(
       fileinclude({
         prefix: "@@",
